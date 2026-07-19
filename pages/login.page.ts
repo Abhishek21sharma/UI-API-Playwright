@@ -17,7 +17,9 @@ export class LoginPage {
   }
 
   async navigateTo(): Promise<void> {
-    await this.page.goto("https://www.rahulshettyacademy.com/client/");
+    await this.page.goto(
+      "https://www.rahulshettyacademy.com/client/#/auth/login",
+    );
   }
 
   /**
