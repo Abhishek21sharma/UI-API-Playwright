@@ -10,11 +10,15 @@ test.describe("Login flow testing", () => {
     await loginPage.navigateTo();
   });
 
-  test("success login @smoke", async ({ page }) => {
-    await loginPage.loginAs(VALID_USER);
-    //assert if login is OK
-    await expect(page).toHaveURL(/.*dashboard/);
-  });
+  test(
+    "success login @smoke",
+    { tag: ["@smoke", "@regression"] },
+    async ({ page }) => {
+      await loginPage.loginAs(VALID_USER);
+      //assert if login is OK
+      await expect(page).toHaveURL(/.*dashboard/);
+    },
+  );
 
   //   test("fail login @reg", async ({ page }) => {
   //     await loginPage.loginAs(INVALID_USER);

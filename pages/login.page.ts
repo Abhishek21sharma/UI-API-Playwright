@@ -17,9 +17,9 @@ export class LoginPage {
   }
 
   async navigateTo(): Promise<void> {
-    await this.page.goto(
-      "https://www.rahulshettyacademy.com/client/#/auth/login",
-    );
+    console.log("feature data is: " + process.env.ENABLE_NEW_DASHBOARD);
+    console.log("URL is: " + process.env.BASE_URL);
+    await this.page.goto("");
   }
 
   /**
