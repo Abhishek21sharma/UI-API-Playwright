@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:qa": "cross-env TEST_ENV=qa playwright test",
+    "test:qa:headed": "cross-env TEST_ENV=qa playwright test --project=chromium --headed",
+    "test:qa:headed:fixture": "cross-env TEST_ENV=qa playwright test --project=chromium --grep=fixture --headed",
+    "test:qa:debug": "cross-env TEST_ENV=qa playwright test --project=chromium --debug"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -11,6 +16,7 @@
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "@types/node": "^26.1.1",
+    "cross-env": "^10.1.0",
     "dotenv": "^17.4.2"
   }
 }
