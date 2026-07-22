@@ -1,10 +1,12 @@
 import { Page } from "@playwright/test";
 import { LoginPage } from "./login.page";
+import { DashboardPage } from "./dashboard.page";
 
 export class App {
   //private properties
   //look at the naming convention
   private _loginPage?: LoginPage;
+  private _dashboard?: DashboardPage;
 
   //it will create a page property and assigned it to
   constructor(private page: Page) {}
@@ -21,5 +23,9 @@ export class App {
     //this._loginPage = new LoginPage(this.page);
     //}
     //return this._loginPage;
+  }
+
+  get dashboard(): DashboardPage {
+    return (this._dashboard ??= new DashboardPage(this.page));
   }
 }
