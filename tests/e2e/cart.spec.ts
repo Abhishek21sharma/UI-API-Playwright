@@ -14,6 +14,6 @@ test(
 
     const resMsg = await app.dashboard.addToCart(CATALOG.ZARA_COAT_3.name);
     expect(resMsg.message).toBe(SUCCESS_MSGS.CART_ADDED);
-    await expect(app.dashboard.cartBadge).toHaveText("1");
+    await expect(app.dashboard.getCartBadge()).toHaveText("1");
   },
 );

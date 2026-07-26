@@ -39,7 +39,7 @@ export class DashboardPage {
     return await response.json();
   }
 
-  async getCartBadge(): Promise<Locator> {
+  getCartBadge() {
     return this.cartBadge;
   }
 }
