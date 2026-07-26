@@ -1,5 +1,5 @@
 import { test as base } from "@playwright/test";
-import { App } from "../pages/app";
+import { App } from "@/pages/app";
 
 //define the type here
 export type customeFixtures = {

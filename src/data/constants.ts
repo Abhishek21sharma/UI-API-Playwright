@@ -5,3 +5,7 @@ export const ERROR_MSGS = {
 } as const;
 
 // 'as const' makes this deeply readonly in TypeScript, preventing accidental mutation in tests.
+
+export const SUCCESS_MSGS = {
+  CART_ADDED: "Product Added To Cart",
+} as const;

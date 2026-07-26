@@ -1,7 +1,5 @@
-//https://www.rahulshettyacademy.com/client/#/auth/login
-
 import { Locator, Page } from "@playwright/test";
-import { UserCredentials } from "../types/users";
+import { UserCredentials } from "@/types/users";
 
 export class LoginPage {
   readonly page: Page;
@@ -22,10 +20,6 @@ export class LoginPage {
     await this.page.goto("");
   }
 
-  /**
-   *Accepts the userCredential interface keeping the signature clean (basically accepting object but in a cleaner way)
-   */
-
   async loginAs(user: UserCredentials): Promise<void> {
     await this.emailBox.fill(user.user);
     await this.passwordBox.fill(user.password);
@@ -34,7 +28,6 @@ export class LoginPage {
     if (user.role) {
       //select the role here
     }
-
     await this.loginBtn.click();
   }
 }

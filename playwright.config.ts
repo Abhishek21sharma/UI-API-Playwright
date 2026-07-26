@@ -11,7 +11,7 @@ import path from "path";
 const ENV = process.env.Test_ENV || "qa";
 
 //construct the path to the config folder
-const envPath = path.resolve(__dirname, `config\\.env.${ENV}`);
+const envPath = path.resolve(__dirname, `src\\config\\.env.${ENV}`);
 console.log(`env file is: ${envPath}`);
 
 //load the specific env file to node ENV

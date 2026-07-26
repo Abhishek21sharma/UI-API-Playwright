@@ -10,17 +10,14 @@ import { Customer } from "../../types/customer";
  * @returns Customer object
  */
 
-//note: to be clear: here overrides is just a variable (and it's optional with ?)  name of type as Partial of Customer
-
 export function createCustomer(overrides?: Partial<Customer>): Customer {
   return {
     id: faker.string.uuid(),
     firstName: faker.person.firstName(),
     lastName: faker.person.lastName(),
-    // Appending a timestamp ensures absolute uniqueness even if Faker repeats
     email: `auto_${Date.now()}_${faker.internet.email()}`,
     phone: faker.phone.number(),
     isPremium: faker.datatype.boolean(),
-    ...overrides, // The spread operator applies any custom values last
+    ...overrides,
   };
 }

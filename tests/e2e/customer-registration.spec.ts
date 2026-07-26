@@ -1,11 +1,10 @@
 import { test, expect } from "@playwright/test";
-import { createCustomer } from "../data/factory/customer-factory";
+import { createCustomer } from "@/data/factory/customer-factory";
 
 test.describe("Customer Registration", () => {
   test("should register a standard random user successfully", async ({
     page,
   }) => {
-    // 1. Generate a 100% random, unique customer
     const validCustomer = createCustomer();
 
     await page.goto("/register");
