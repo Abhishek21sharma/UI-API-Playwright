@@ -6,7 +6,7 @@
   "scripts": {
     "test:qa": "cross-env TEST_ENV=qa playwright test",
     "test:qa:headed": "cross-env TEST_ENV=qa playwright test --project=chromium --headed",
-    "test:qa:headed:fixture": "cross-env TEST_ENV=qa playwright test --project=chromium --grep=fixture --headed",
+    "test:qa:headed:fixture": "cross-env TEST_ENV=qa playwright test --project=chromium --grep=@fixture --headed",
     "test:qa:debug": "cross-env TEST_ENV=qa playwright test --project=chromium --debug"
   },
   "keywords": [],

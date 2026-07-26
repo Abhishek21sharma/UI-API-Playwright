@@ -9,6 +9,8 @@ test(
     await app.login.navigateTo();
     await app.login.loginAs(VALID_USER);
     await expect(page).toHaveURL(/.*dashboard/);
-    app.dashboard.addToCart(CATALOG.ZARA_COAT_3.name);
+    const resMsg = await app.dashboard.addToCart(CATALOG.ZARA_COAT_3.name);
+    //for tomorrow -> to update following message in the constant file directory
+    expect(resMsg.message).toBe("Product Added To Cart");
   },
 );
