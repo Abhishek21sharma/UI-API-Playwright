@@ -1,10 +1,12 @@
 import { Page } from "@playwright/test";
 import { LoginPage } from "@/pages/login.page";
 import { DashboardPage } from "@/pages/dashboard.page";
+import { MyCartPage } from "./my-cart.page";
 
 export class App {
   private _loginPage?: LoginPage;
   private _dashboard?: DashboardPage;
+  private _myCart?: MyCartPage;
 
   constructor(private page: Page) {}
 
@@ -23,5 +25,9 @@ export class App {
 
   get dashboard(): DashboardPage {
     return (this._dashboard ??= new DashboardPage(this.page));
+  }
+
+  get myCart(): MyCartPage {
+    return (this._myCart ??= new MyCartPage(this.page));
   }
 }
