@@ -10,8 +10,10 @@ test(
     await app.login.navigateTo();
     await app.login.loginAs(VALID_USER);
     await expect(page).toHaveURL(/.*dashboard/);
+    await expect(app.dashboard.cartBadge).toHaveText("");
+
     const resMsg = await app.dashboard.addToCart(CATALOG.ZARA_COAT_3.name);
-    //for tomorrow -> to update following message in the constant file directory
     expect(resMsg.message).toBe(SUCCESS_MSGS.CART_ADDED);
+    await expect(app.dashboard.cartBadge).toHaveText("1");
   },
 );

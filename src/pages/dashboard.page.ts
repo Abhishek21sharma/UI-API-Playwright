@@ -5,6 +5,8 @@ import { AddToCartResponse } from "@/types/cart-api";
 export class DashboardPage {
   readonly page: Page;
   readonly productCards: Locator;
+  readonly cartButton: Locator;
+  readonly cartBadge: Locator;
   private readonly BTN_ADD_TO_CART = "Add To Cart";
 
   constructor(page: Page) {
@@ -12,6 +14,12 @@ export class DashboardPage {
     this.productCards = this.page.locator(
       "#products .container .row .card-body",
     );
+    //i -> reg exp for case sensitivity & reg exp
+    //\b stands for a word boundary, which ensures it won't match "Add to Cart" (since "Add" comes before it), but will match "Cart" even if numbers or spaces exist after it.
+    this.cartButton = this.page.getByRole("button", { name: /\bCart\b/i });
+    //this.cartButton = this.page.getByRole("button", { name: /^Cart$/i });
+    //this.page.getByRole("button", { name: "Cart", exact: true });
+    this.cartBadge = this.cartButton.locator("label");
   }
 
   async addToCart(productName: string): Promise<AddToCartResponse> {
@@ -29,5 +37,9 @@ export class DashboardPage {
       addToCartButton.click(),
     ]);
     return await response.json();
+  }
+
+  async getCartBadge(): Promise<Locator> {
+    return this.cartBadge;
   }
 }
