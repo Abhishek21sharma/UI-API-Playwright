@@ -1,4 +1,4 @@
-import { Product } from "@/types/product";
+import { Product } from "@/types/product.types";
 
 export const CATALOG = {
   ZARA_COAT_3: {

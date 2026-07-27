@@ -1,6 +1,6 @@
 import { Locator, Page, expect } from "@playwright/test";
 import { API_ENDPOINTS } from "@/data/endpoints";
-import { AddToCartResponse } from "@/types/cart-api";
+import { AddToCartResponse } from "@/types/cart-api.types";
 
 export class DashboardPage {
   readonly page: Page;

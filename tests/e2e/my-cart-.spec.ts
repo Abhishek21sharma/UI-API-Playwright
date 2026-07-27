@@ -1,6 +1,6 @@
 import { expect, test } from "@/fixtures/app-fixture";
-import { VALID_USER } from "@/data/users";
-import { CATALOG } from "@/data/products";
+import { VALID_USER } from "@/data/users.data";
+import { CATALOG } from "@/data/products.data";
 import { SUCCESS_MSGS } from "@/data/constants";
 
 const dollar = "$";

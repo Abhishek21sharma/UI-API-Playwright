@@ -2,7 +2,7 @@
 //it's a good example of how we want to create data per needs and not hard code anything
 
 import { faker } from "@faker-js/faker";
-import { Customer } from "../../types/customer";
+import { Customer } from "../../types/customer.types";
 
 /**
  * Generates a collision-free Customer object.

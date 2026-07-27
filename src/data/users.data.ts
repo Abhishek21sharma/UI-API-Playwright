@@ -1,4 +1,4 @@
-import { UserCredentials } from "@/types/users";
+import { UserCredentials } from "@/types/users.types";
 import dotenv from "dotenv";
 
 export const VALID_USER: UserCredentials = {

@@ -1,5 +1,5 @@
 import { test, expect } from "@/fixtures/app-fixture";
-import { VALID_USER, INVALID_USER } from "@/data/users";
+import { VALID_USER, INVALID_USER } from "@/data/users.data";
 
 test("login test", { tag: ["@smoke"] }, async ({ app, page }, testinfo) => {
   await app.login.navigateTo();

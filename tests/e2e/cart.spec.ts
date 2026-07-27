@@ -1,5 +1,5 @@
-import { CATALOG } from "@/data/products";
-import { VALID_USER } from "@/data/users";
+import { CATALOG } from "@/data/products.data";
+import { VALID_USER } from "@/data/users.data";
 import { test, expect } from "@/fixtures/app-fixture";
 import { SUCCESS_MSGS } from "@/data/constants";
 
