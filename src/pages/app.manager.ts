@@ -1,12 +1,14 @@
 import { Page } from "@playwright/test";
 import { LoginPage } from "@/pages/login.page";
 import { DashboardPage } from "@/pages/dashboard.page";
-import { MyCartPage } from "./my-cart.page";
+import { MyCartPage } from "@/pages/my-cart.page";
+import { SignOutPage } from "@/pages/sign-out.page";
 
 export class App {
   private _loginPage?: LoginPage;
   private _dashboard?: DashboardPage;
   private _myCart?: MyCartPage;
+  private _signOutPage?: SignOutPage;
 
   constructor(private page: Page) {}
 
@@ -29,5 +31,9 @@ export class App {
 
   get myCart(): MyCartPage {
     return (this._myCart ??= new MyCartPage(this.page));
+  }
+
+  get signOut(): SignOutPage {
+    return (this._signOutPage ??= new SignOutPage(this.page));
   }
 }
