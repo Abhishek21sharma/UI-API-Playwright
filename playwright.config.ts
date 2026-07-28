@@ -1,22 +1,10 @@
 import { defineConfig, devices } from "@playwright/test";
+import { ENV } from "@/config/env.config";
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-import dotenv from "dotenv";
-import path from "path";
-
-//read the ENV variable from CLI
-const ENV = process.env.Test_ENV || "qa";
-
-//construct the path to the config folder
-const envPath = path.resolve(__dirname, `src\\config\\.env.${ENV}`);
-console.log(`env file is: ${envPath}`);
-
-//load the specific env file to node ENV
-//dotenv.config({ path: path.resolve(__dirname, ".env") }); #can also use it straight away
-dotenv.config({ path: envPath });
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -36,7 +24,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL: process.env.BASE_URL,
+    baseURL: ENV.BASE_URL,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "retain-on-failure",
