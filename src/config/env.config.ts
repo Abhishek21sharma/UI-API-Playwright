@@ -8,6 +8,7 @@
 
 import * as dotenv from "dotenv";
 import * as path from "path";
+import { z } from "zod";
 
 const envName = process.env.Test_ENV || "qa";
 const envPath = path.resolve(__dirname, `.env.${envName}`);
@@ -27,6 +28,15 @@ for (const envVar of mandatoryENVVars) {
     );
   }
 }
+
+//zod schema validation (it removes the above boilerplate)
+const envSchema = z.object({
+  BASE_URL: z.string().url("Must be a valid URL"),
+  VALID_EMAIL: z.string().email(),
+  VALID_PWD: z.string().min(1),
+});
+
+export const ENV1 = envSchema.parse(process.env);
 
 //defining the type of the object
 export const ENV = {
