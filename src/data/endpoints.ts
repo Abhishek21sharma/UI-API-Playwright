@@ -1,4 +1,4 @@
 export const API_ENDPOINTS = {
-  LOGIN: "",
-  ADD_TO_CART: "/add-to-cart",
+  login: "/auth/login",
+  get_all_products: "/product/get-all-products",
 } as const;
