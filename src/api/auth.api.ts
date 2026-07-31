@@ -8,10 +8,17 @@ export class AuthApi {
   constructor(private readonly request: APIRequestContext) {}
 
   async login(credentials: UserCredentials): Promise<LoginResponse> {
-    const response = await this.request.post(API_ENDPOINTS.login, {
-      data: VALID_USER,
-    });
+    console.log("end point is: " + API_ENDPOINTS.login);
 
+    //API_ENDPOINTS.login
+    const response = await this.request.post(
+      "https://www.rahulshettyacademy.com/api/ecom/auth/login",
+      {
+        data: VALID_USER,
+      },
+    );
+
+    console.log("is there any response?? " + (await response.json()));
     expect(
       response.ok(),
       `API Login failed with status ${response.status()}: ${await response.text()}`,

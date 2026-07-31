@@ -18,7 +18,12 @@ console.log(`env file is: ${envPath}`);
 dotenv.config({ path: envPath });
 
 //defining the mandatory env variables as an array..
-const mandatoryENVVars = ["BASE_URL", "VALID_EMAIL", "VALID_PWD"] as const;
+const mandatoryENVVars = [
+  "BASE_URL",
+  "VALID_EMAIL",
+  "VALID_PWD",
+  "API_BASE_URL",
+] as const;
 
 //fail if the mandatory variables does not exists
 for (const envVar of mandatoryENVVars) {
@@ -34,6 +39,7 @@ const envSchema = z.object({
   BASE_URL: z.string().url("Must be a valid URL"),
   VALID_EMAIL: z.string().email(),
   VALID_PWD: z.string().min(1),
+  API_BASE_URL: z.string().url("valid host name"),
 });
 
 export const ENV1 = envSchema.parse(process.env);
@@ -43,4 +49,5 @@ export const ENV = {
   BASE_URL: process.env.BASE_URL as string,
   VALID_EMAIL: process.env.VALID_EMAIL as string,
   VALID_PWD: process.env.VALID_PWD as string,
+  API_BASE_URL: process.env.API_BASE_URL as string,
 };
