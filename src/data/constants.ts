@@ -1,3 +1,4 @@
+import path from "path";
 export const ERROR_MSGS = {
   INVALID_LOGIN: "The username or password you entered is incorrect.",
   SESSION_EXPIRED: "Your session has expired. Please log in again.",
@@ -8,4 +9,8 @@ export const ERROR_MSGS = {
 
 export const SUCCESS_MSGS = {
   CART_ADDED: "Product Added To Cart",
+} as const;
+
+export const AUTH = {
+  AUTH_STATE_PATH: path.resolve(__dirname, "../../.auth/state.json"),
 } as const;
