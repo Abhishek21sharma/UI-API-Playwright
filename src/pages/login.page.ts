@@ -21,8 +21,8 @@ export class LoginPage {
   }
 
   async loginAs(user: UserCredentials): Promise<void> {
-    await this.emailBox.fill(user.user);
-    await this.passwordBox.fill(user.password);
+    await this.emailBox.fill(user.userEmail);
+    await this.passwordBox.fill(user.userPassword);
 
     //check if role exists as this is optional
     if (user.role) {

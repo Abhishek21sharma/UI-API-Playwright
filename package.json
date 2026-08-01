@@ -10,7 +10,8 @@
     "test:qa:headed:cart": "cross-env TEST_ENV=qa playwright test --project=chromium --grep=@cart --headed",
     "test:qa:headed:api": "cross-env TEST_ENV=qa playwright test --project=chromium --grep=@api --headed",
     "test:qa:headed:sign_out": "cross-env TEST_ENV=qa playwright test --project=chromium --grep=@sign_out --headed",
-    "test:qa:debug": "cross-env TEST_ENV=qa playwright test --project=chromium --debug"
+    "test:qa:debug": "cross-env TEST_ENV=qa playwright test --project=chromium --debug",
+    "test:qa:login": "cross-env TEST_ENV=qa playwright test tests/api/login.spec.ts --reporter=line"
   },
   "keywords": [],
   "author": "",

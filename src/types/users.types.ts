@@ -1,6 +1,6 @@
 //SOLID approch
 export interface UserCredentials {
-  user: string;
-  password: string;
+  userEmail: string;
+  userPassword: string;
   role?: "admin" | "standard" | "guest";
 }

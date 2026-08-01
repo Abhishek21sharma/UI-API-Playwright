@@ -9,6 +9,7 @@ type ApiFixtures = {
 
 export const test = base.extend<ApiFixtures>({
   apiContext: async ({}, use) => {
+    console.log("--- DEBUG: API_BASE_URL ---", ENV.API_BASE_URL);
     const context = await request.newContext({
       baseURL: ENV.API_BASE_URL,
       extraHTTPHeaders: { Accept: "application/json" },
