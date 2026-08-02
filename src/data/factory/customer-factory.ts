@@ -18,6 +18,7 @@ export function createCustomer(overrides?: Partial<Customer>): Customer {
     email: `auto_${Date.now()}_${faker.internet.email()}`,
     phone: faker.phone.number(),
     isPremium: faker.datatype.boolean(),
+    //it will override the property here if provided otherwise stict to what's already generated above
     ...overrides,
   };
 }
