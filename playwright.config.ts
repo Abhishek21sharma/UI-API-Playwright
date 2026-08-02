@@ -44,6 +44,11 @@ export default defineConfig({
     },
 
     {
+      name: "mock",
+      use: { ...devices["Desktop Chrome"] },
+    },
+
+    {
       name: "firefox",
       use: { ...devices["Desktop Firefox"] },
     },
