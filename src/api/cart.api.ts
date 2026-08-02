@@ -9,11 +9,11 @@ import {
 export class CartApi extends BaseAPIClient {
   //add product
   async addProductToCart(payload: AddToCartPayload): Promise<AddToCartRespose> {
-    return this.post(
-      API_ENDPOINTS.ADD_TO_CART,
-      payload,
-      AddtoCartResponseScehama,
-      200,
-    );
+    return this.post({
+      endpoint: API_ENDPOINTS.ADD_TO_CART,
+      payload: payload,
+      schema: AddtoCartResponseScehama,
+      expectedStatus: 200,
+    });
   }
 }

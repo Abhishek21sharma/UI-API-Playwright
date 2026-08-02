@@ -1,18 +1,28 @@
 import { APIRequestContext, APIResponse } from "@playwright/test";
-import { ZodSchema } from "zod";
+import { ZodSchema, z } from "zod";
+
+export interface RequestOptions<T> {
+  endpoint: string;
+  payload?: any;
+  schema: z.ZodType<T>;
+  expectedStatus?: number;
+  headers?: Record<string, string>;
+}
 
 export class BaseAPIClient {
   constructor(public request: APIRequestContext) {}
 
   //generic type T -> ensure whatever zodschema we pass in, TS will return the exact type
-  async post<T>(
-    endpoint: string,
-    payload: any,
-    schema: ZodSchema<T>,
-    expectedStatus: number = 200,
-  ): Promise<T> {
+  async post<T>({
+    endpoint,
+    payload,
+    schema,
+    expectedStatus = 200,
+    headers,
+  }: RequestOptions<T>): Promise<T> {
     const response = await this.request.post(endpoint, {
       data: payload,
+      headers: headers,
     });
 
     await this.validateStatus(response, expectedStatus, endpoint);
