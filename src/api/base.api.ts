@@ -1,5 +1,6 @@
-import { APIRequestContext, APIResponse } from "@playwright/test";
+import { APIRequestContext, APIResponse, test } from "@playwright/test";
 import { ZodSchema, z } from "zod";
+import { formatPayload } from "@/utils/helper";
 
 export interface RequestOptions<T> {
   endpoint: string;
@@ -55,6 +56,11 @@ export class BaseAPIClient {
     const status = response.status();
     if (status !== expectedStatus) {
       const body = await response.text();
+
+      await test.info().attach(`Failed Response: ${endpoint}`, {
+        body: JSON.stringify(formatPayload(body), null, 2),
+        contentType: "application/json",
+      });
       throw new Error(
         `API Error on ${endpoint}: Expected ${expectedStatus} but got ${status}.\nResponse: ${body}`,
       );
