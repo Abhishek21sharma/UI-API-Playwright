@@ -22,7 +22,8 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : 1,
+  // Limit workers on CI to avoid CPU starvation; use more locally
+  workers: process.env.CI ? 2 : "50%",
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ["html", { outputFolder: "playwright-report", open: "never" }],
@@ -40,6 +41,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
+    video: "retain-on-failure",
   },
 
   /* Configure projects for major browsers */
