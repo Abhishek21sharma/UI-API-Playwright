@@ -14,3 +14,10 @@ export const SUCCESS_MSGS = {
 export const AUTH = {
   AUTH_STATE_PATH: path.resolve(__dirname, "../../.auth/state.json"),
 } as const;
+
+export const GOOGLE_ADS_BLOCKLIST: readonly string[] = [
+  "*://*.googlesyndication.com/*",
+  "*://*.doubleclick.net/*",
+  "*://*.googleadservices.com/*",
+  "*://*.googletagservices.com/*",
+];

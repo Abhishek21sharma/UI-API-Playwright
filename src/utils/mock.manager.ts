@@ -10,6 +10,12 @@ export class MockManager {
       //or we can directly use it as import the json file
       const responseBody = { ...MOCK_ARTICLE_RESPONSE };
 
+      //useage of route.fetch() method
+      const response = await route.fetch();
+      const resBody = await response.json();
+      resBody.articles[0].title = "This is a test title";
+      //now we can pass the resBody as well to fulfill with JSON.stringify(resBody)
+
       if (customTitle) {
         responseBody.article.title = customTitle;
       }
