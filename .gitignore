@@ -9,4 +9,5 @@ node_modules/
 .env*
 !.env.example
 .auth/
-.playwright-bdd/
+.features-gen/
+/reports/

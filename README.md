@@ -36,3 +36,17 @@ for example: to runt his script: test:qa:headed:mock
 # To start execution in debug mode
 
 - npx playwright test --ui
+
+# To install BDD libs
+
+- npm i -D playwright-bdd
+
+# To map the tsconfig file to point to the paths in new BDD config file
+
+Install the following lib
+
+""" npm install --save-dev tsconfig-paths """
+
+# VSCODE Settings : To re-load the project
+
+- ctrl + shift + p

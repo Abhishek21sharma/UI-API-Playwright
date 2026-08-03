@@ -13,7 +13,15 @@
     "test:qa:headed:auth": "cross-env TEST_ENV=qa playwright test --project=chromium --grep=@auth --headed",
     "test:qa:headed:mock": "cross-env TEST_ENV=qa playwright test --project=mock --grep=@mock --headed",
     "test:qa:debug": "cross-env TEST_ENV=qa playwright test --project=chromium --debug",
-    "test:qa:login": "cross-env TEST_ENV=qa playwright test tests/api/login.spec.ts --reporter=line"
+    "test:qa:login": "cross-env TEST_ENV=qa playwright test tests/api/login.spec.ts --reporter=line",
+    "pretest:bdd": "npm run clean:bdd",
+    "test:bdd": "bddgen && playwright test -c bdd.config.ts",
+    "posttest:bdd": "npm run clean:bdd",
+    "test:bdd:ui": "bddgen && playwright test -c bdd.config.ts --ui",
+    "test:bdd:cart": "bddgen --tags \"@cart\" && playwright test -c bdd.config.ts",
+    "clean:bdd": "npx rimraf .features-gen",
+    "report:cucumber": "npx serve reports/cucumber",
+    "report:playwright": "npx playwright show-report"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +33,8 @@
     "@types/node": "^26.1.1",
     "cross-env": "^10.1.0",
     "dotenv": "^17.4.2",
+    "playwright-bdd": "^9.2.0",
+    "tsconfig-paths": "^4.2.0",
     "zod": "^4.4.3"
   }
 }
